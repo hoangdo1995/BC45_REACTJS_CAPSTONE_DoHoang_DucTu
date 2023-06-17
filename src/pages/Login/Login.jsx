@@ -1,14 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { customNavigate } from '../..'
+import {history} from '../../index.js'
 
 const Login = () => {
   return (
     <div>
-      <Link className='btn btn-success' onClick={()=>{
-        customNavigate.push('');
-        console.log('home')
-      }}>Link</Link>
+      Login
     </div>
   )
 }

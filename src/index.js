@@ -23,14 +23,14 @@ import SearchMobile from './pages/Search/SearchMobile';
 import Carts from './pages/Carts/Carts';
 import CartsMobile from './pages/Carts/CartsMobile';
 
-export const customNavigate = createBrowserHistory();
+export const history = createBrowserHistory();
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HistoryRouter history={customNavigate}>
+      <HistoryRouter history={history}>
         <Routes>
           <Route path='' element={<MainTemplate />}>
             <Route index element={<Home />} />

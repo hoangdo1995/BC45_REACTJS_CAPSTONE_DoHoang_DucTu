@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+*{
+  font-family: 'Inter', sans-serif;
+}
+#navigate a{
+  position: relative;
+}
+#navigate a::after{
+  content: '';
+  position: absolute;
+  left:0px;
+  bottom:-6px;
+  z-index: 10;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  background-color: grey;
+  transition: all 0.5s;
+}
+#navigate a:hover:after{
+  transform: scaleX(1);
+}
+#navigate a.active::after{
+  transform: scaleX(1);
+}
