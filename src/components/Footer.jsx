@@ -1,11 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className=''>
-      <div className='row px-5 py-3'>
-        <div className="col-4  d-flex flex-column px-5">
+    <div className=' '>
+      <div className='row px-5 py-3 bg-body-tertiary'>
+        <div className="col-4  d-flex flex-column px-5 ">
           <h5 className='fw-bold'>GET HELP</h5>
           <Link className='text-decoration-none text-dark fw-semibold'>Home</Link>
           <Link className='text-decoration-none text-dark fw-semibold'>Nike</Link>
@@ -25,8 +25,8 @@ const Footer = () => {
           <Link className='text-decoration-none text-dark fw-semibold'>Login</Link>
         </div>
       </div>
-      <div className='d-flex justify-content-center align-content-center p-3' style={{backgroundColor:'#D9D9D9'}}>
-          <p className='h-100 mb-0 fs-5'>&copy; 2020 Cybersoft All Rights Reserved | Design Theme by Trương Tấn Khải</p>
+      <div className='d-flex justify-content-center align-content-center p-3' style={{ backgroundColor: '#D9D9D9' }}>
+        <p className='h-100 mb-0 fs-5'>&copy; 2020 Cybersoft All Rights Reserved | Design Theme by Trương Tấn Khải</p>
       </div>
     </div>
   )
