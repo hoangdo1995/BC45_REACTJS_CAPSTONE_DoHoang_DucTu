@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className=''>
+    <div className='footer' id=''>
       <div className='row px-5 py-3'>
         <div className="col-4  d-flex flex-column px-5">
           <h5 className='fw-bold'>GET HELP</h5>
