@@ -18,7 +18,7 @@ const Header = () => {
         </div>
       </div>
       <div className='fs-4 fw-light p-3' id='navigate'>
-        <NavLink to={''} className={({isActive})=>(isActive?'text-dark active':'text-secondary active')} active style={{textDecoration:'none'}}>Home</NavLink>
+        <NavLink to={''} className={({isActive})=>(isActive?'text-dark active':'text-secondary active')} style={{textDecoration:'none'}}>Home</NavLink>
         <NavLink to={'/product/men'} className={({isActive})=>(isActive?'text-dark ms-3':'text-secondary ms-3')} style={{textDecoration:'none'}}>Men</NavLink>
         <NavLink to={'/product/women'} className={({isActive})=>(isActive?'text-dark ms-3':'text-secondary ms-3')} style={{textDecoration:'none'}}>Women</NavLink>
         <NavLink to={'/product/kid'} className={({isActive})=>(isActive?'text-dark ms-3':'text-secondary ms-3')} style={{textDecoration:'none'}}>Kid</NavLink>

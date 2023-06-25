@@ -22,6 +22,7 @@ import Search from './pages/Search/Search';
 import SearchMobile from './pages/Search/SearchMobile';
 import Carts from './pages/Carts/Carts';
 import CartsMobile from './pages/Carts/CartsMobile';
+import HomeMobile from './pages/Home/HomeMobile';
 
 export const history = createBrowserHistory();
 
@@ -33,7 +34,7 @@ root.render(
       <HistoryRouter history={history}>
         <Routes>
           <Route path='' element={<MainTemplate />}>
-            <Route index element={<Home />} />
+            <Route index element={<ResponsiveItem component={Home} mobileComponent={HomeMobile} />} />
             <Route path='login' element={<ResponsiveItem component={Login} mobileComponent={LoginMobile} />} />
             <Route path='register' element={<ResponsiveItem component={Register} mobileComponent={RegisterMobile} />} />
             <Route path='detail/:productId' element={<ResponsiveItem component={Detail} mobileComponent={DetailMobile} />} />

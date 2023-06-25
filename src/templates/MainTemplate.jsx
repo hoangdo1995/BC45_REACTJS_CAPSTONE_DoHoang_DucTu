@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 
 const MainTemplate = () => {
   return (
-    <div className='container'>
+    <div className='container-md'>
         <ResponsiveItem component={Header} mobileComponent={Header}/>
         <Outlet/>
         <ResponsiveItem component={Footer} mobileComponent={Footer}/>
