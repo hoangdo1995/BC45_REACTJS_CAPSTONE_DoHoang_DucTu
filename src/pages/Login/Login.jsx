@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {history} from '../../index.js'
-import { USER_LOGIN, getStorageJson,http,setStorageJson } from '../../templates/config.js'
+import { USER_LOGIN, getStorageJson,http,setStorageJson } from '../../utils/config'
 import axios from 'axios'
 
 const Login = () => {
