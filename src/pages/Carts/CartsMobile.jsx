@@ -1,8 +1,11 @@
 import React from 'react'
 
+import { DanhSachGioHang } from './DanhSachGioHang'
+
 const CartsMobile = () => {
   return (
-    <div>CartsMobile</div>
+    <div className='container'>
+    </div>
   )
 }
 
