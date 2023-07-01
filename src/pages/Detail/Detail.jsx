@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import { NavLink, useParams } from "react-router-dom";
-import { addToCartAction } from "../../redux/cartReducer/cartReducer";
+import { addToCartAction } from "../../redux/Reducer/cartReducer";
 import { useDispatch } from "react-redux";
 
 const Detail = () => {
