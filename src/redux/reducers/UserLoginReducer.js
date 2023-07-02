@@ -5,7 +5,8 @@ import { history } from "../..";
 
 const initialState = {
     user_login:getStorageJson(USER_LOGIN),
-    user_login_error:''
+    user_login_error:'',
+    likeProduct:''
 };
 
 const UserLoginReducer = createSlice({
@@ -20,11 +21,15 @@ const UserLoginReducer = createSlice({
     setUserLoginError:(state,action)=>{
         state.user_login_error = action.payload;
         return state;
+    },
+    setLikeProduct:(state,action)=>{
+      state.likeProduct = action.payload;
+      return state;
     }
   },
 });
 
-export const {setUserLogin,setUserLoginError} = UserLoginReducer.actions;
+export const {setUserLogin,setUserLoginError,setLikeProduct} = UserLoginReducer.actions;
 
 export default UserLoginReducer.reducer;
 
@@ -59,4 +64,11 @@ export const profileAction = ()=>{
           history.push('/login');
         }
       }
+}
+export const getLikeProduct =()=>{
+  return async (dispatch)=>{
+    const likeProds = await http.get('/api/Users/getproductfavorite');
+    const action = setLikeProduct(likeProds.data?.content?.productsFavorite);
+    dispatch(action);
+  }
 }

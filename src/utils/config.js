@@ -53,7 +53,7 @@ http.interceptors.response.use((response)=>{
         console.log(error.response.status,'status');
         if(error.response.status === 404){
             console.log('404 status');
-            history.push('login');
+            history.push('/login');
         }
     }
     return error;

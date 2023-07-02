@@ -92,9 +92,9 @@ const Profile = () => {
       </div>
       <div className="profile p-4">
         <form className="row" onSubmit={frm.handleSubmit}>
-          <div className="avatar col-2">
+          <div className="avatar col-2 ">
             <img
-              src={'https://i.pravatar.cc?u=1'}
+              src={user_login?.avatar}
               alt="..."
               style={{ width: "100%", display: "block", borderRadius: "50%" }}
             />

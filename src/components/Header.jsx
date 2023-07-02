@@ -12,7 +12,7 @@ const Header = () => {
       <div className='container d-flex justify-content-between align-items-center p-4' style={{color:'white',background:'black'}}>
         <div className="logo">
           <NavLink to={''}>
-            <img src="./image/logo.png" alt="..."  />
+            <img src="../image/logo.png" alt="..."  />
           </NavLink>
         </div>
         <div className="nav fs-5 d-flex justify-content-between align-items-center">
