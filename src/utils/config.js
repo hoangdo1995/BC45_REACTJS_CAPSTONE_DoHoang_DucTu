@@ -1,5 +1,4 @@
 import axios from "axios";
-import { json } from "react-router-dom";
 import { history } from "..";
 
 const USER_LOGIN = 'user_login';
@@ -32,14 +31,13 @@ export const http = axios.create({
     timeout:3000
 });
 
-// cấu hình interceptor cấu hình cho request (api gửi đi)
 http.interceptors.request.use((req)=>{
     req.headers = {...req.headers,
         TokenCyberSoft:
         `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA0NSIsIkhldEhhblN0cmluZyI6IjIwLzExLzIwMjMiLCJIZXRIYW5UaW1lIjoiMTcwMDQzODQwMDAwMCIsIm5iZiI6MTY3MjA3NDAwMCwiZXhwIjoxNzAwNTg2MDAwfQ.nqyOmcwBXyqINN0ROA_xI8TKx0Jk05_lwRy4Cdv0j_8`,
-        option:''
+        option:'',
     }
-    if(getStorageJson(USER_LOGIN)){
+    if(getStorageJson(USER_LOGIN)?.accessToken){
         req.headers = {...req.headers,
             Authorization:`Bearer ${getStorageJson(USER_LOGIN).accessToken}`
         }
@@ -47,9 +45,8 @@ http.interceptors.request.use((req)=>{
     return req
 })
 
-//cấu hình interceptor cho response nhận về
 http.interceptors.response.use((response)=>{
-    console.log(response,'response');
+    console.log(response?.data,'response');
     return response;
 },error=>{
     if(error.response?.status){

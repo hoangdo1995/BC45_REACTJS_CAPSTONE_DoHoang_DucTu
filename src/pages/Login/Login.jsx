@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import {history} from '../../index.js'
-import axios from 'axios'
 import LoginWithFacebook from '../../components/LoginWithFacebook.jsx'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { http } from '../../utils/config.js'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUserLogin, setUserLoginError } from '../../redux/reducers/UserLoginReducer.js'
+import { loginAction, setUserLogin, setUserLoginError } from '../../redux/reducers/UserLoginReducer.js'
 const Login = () => {
   const dispatch = useDispatch();
   const loginStatus = useSelector(state=>state.UserLoginReducer);
@@ -15,21 +14,10 @@ const Login = () => {
       email_login:'',
       password_login:''
     },
-    onSubmit:(async()=>{
-      const res = await http.post('/api/Users/signin',{email:frm.values.email_login,password:frm.values.password_login});
-      console.log(res);
-      if(res?.status === 200){
-        const action = setUserLogin(res.data?.content);
-        dispatch(action);
-        const actionError = setUserLoginError(res?.data.message);
-        dispatch(actionError);
-      }else{
-        const action = setUserLogin({email:res.response?.data.content.email});
-        dispatch(action);
-        const actionError = setUserLoginError(res.response?.data.message);
-        dispatch(actionError);
-      }
-      
+    onSubmit:(()=>{
+      const loginUser = loginAction({email:frm.values.email_login,password:frm.values.password_login});
+      dispatch(loginUser);
+      console.log(frm.values);
     }),
     validationSchema:Yup.object().shape({
       email_login:Yup.string().email('Email sai định dạng!').required('Email không được thiếu!'),
@@ -37,7 +25,7 @@ const Login = () => {
     })
   });
   useEffect(()=>{
-    document.querySelector('#email_login').value = loginStatus.user_login?.email;
+    document.querySelector('#email_login').value = loginStatus.user_login?.email?loginStatus.user_login?.email:'';
     frm.values.email_login = loginStatus.user_login?.email;
   },[])
   return (
@@ -49,7 +37,7 @@ const Login = () => {
         </div>
         <div className='d-flex flex-column align-items-center py-3'>
           <form action="" className='form w-50' onSubmit={frm.handleSubmit}>
-          {loginStatus.user_login_error && <p className={(loginStatus.user_login.accessToken)? 'text-center text-success':'text-center text-danger'}>{loginStatus.user_login_error}</p>}
+          {loginStatus.user_login_error && <p className={(loginStatus.user_login?.accessToken)? 'text-center text-success':'text-center text-danger'}>{loginStatus.user_login_error}</p>}
             <div className='form-group mb-4'>
               <p className='text-secondary fw-semibold mb-1'>Email</p>
               <input type="text" className="form-control" id='email_login' onChange={frm.handleChange}/>

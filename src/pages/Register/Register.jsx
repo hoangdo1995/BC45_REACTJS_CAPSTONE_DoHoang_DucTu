@@ -10,6 +10,7 @@ import {
 import { history } from "../..";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserRegister } from "../../redux/reducers/UserRegisterReducer";
+import { setUserLogin } from "../../redux/reducers/UserLoginReducer";
 
 const Register = () => {
   const emailExistsErr = useSelector((state) => state.UserRegisterReducer);
@@ -37,6 +38,8 @@ const Register = () => {
       console.log(user_register);
       const res = await http.post("/api/Users/signup", user_register);
       if (res?.status === 200) {
+        const action = setUserLogin({email:res.data?.content.email});
+        dispatch(action);
         history.push("login");
       }
       if (res.response?.status === 400) {

@@ -3,16 +3,25 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 import { USER_LOGIN, getStorageJson, http, setStorageJson } from "../utils/config";
 import { setUserLogin, setUserLoginError } from "../redux/reducers/UserLoginReducer";
 import { useDispatch } from "react-redux";
+import { history } from "..";
 
 const LoginWithFacebook = () => {
     const dispatch = useDispatch();
     const responseFacebook = async(response)=>{
         let res = await http.post("/api/Users/facebooklogin",{facebookToken:response?.accessToken});
-        console.log(res.data?.message);
-        const actionLogin = setUserLogin({accessToken:res.data?.content.accessToken});
+        if(res?.status===200){
+          const actionLogin = setUserLogin({accessToken:res.data?.content.accessToken,name:response?.name});
         dispatch(actionLogin);
         const actionSetStatus = setUserLoginError(res.data?.message);
         dispatch(actionSetStatus);
+        const userProfileRes =  await http.post('https://shop.cyberlearn.vn/api/Users/getProfile');
+        if(userProfileRes?.status === 200){
+          const profileAction = setUserLogin({...res.data?.content,...userProfileRes?.data.content});
+          dispatch(profileAction);
+        }
+        history.push('profile');
+        }
+        
     }
   return <div>
     <FacebookLogin
