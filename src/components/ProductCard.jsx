@@ -25,7 +25,7 @@ const ProductCard = (props) => {
                         <p style={{width:'100%',color:'#CBC9C9',fontSize:14}} className="px-2 my-1">Description: {product.shortDescription}</p>
                         <div className="d-flex w-100">
                             <button className="w-50 border-0 p-2" style={{background:'#9DE167'}}>Buy Now</button>
-                            <div className="text-center w-50 p-2" style={{background:'#DEDDDC'}}>
+                            <div className="text-center w-50 p-2 fw-bold" style={{background:'#DEDDDC'}}>
                                 {product?.price}$
                             </div>
                         </div>

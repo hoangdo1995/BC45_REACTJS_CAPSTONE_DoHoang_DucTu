@@ -9,7 +9,7 @@ const LoginWithFacebook = () => {
     const dispatch = useDispatch();
     const responseFacebook = async(response)=>{
         let res = await http.post("/api/Users/facebooklogin",{facebookToken:response?.accessToken});
-        console.log('facebookToken',res);
+        console.log('facebookToken',response);
         
         if(res?.status===200){
           const actionLogin = setUserLogin({accessToken:res.data?.content.accessToken,name:response?.name});

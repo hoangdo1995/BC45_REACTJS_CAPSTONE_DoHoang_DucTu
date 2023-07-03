@@ -36,6 +36,8 @@ export default UserLoginReducer.reducer;
 export const loginAction = (userLogin)=>{
   return async (dispatch)=>{
     const res = await http.post('/api/Users/signin',userLogin);
+    console.log('dae',res);
+    
       if(res?.status === 200){
         const actionUser = setUserLogin({...res.data?.content});
         dispatch(actionUser);
