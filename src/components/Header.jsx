@@ -30,7 +30,7 @@ const Header = () => {
             }
             style={{ textDecoration: "none" }}
           >
-            <i className="fa fa-shopping-cart"></i>(1)
+            <i className="fa fa-shopping-cart"></i>
           </NavLink>
           <NavLink
             to={"login"}
