@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { USER_LOGIN, getStorageJson, http, setStorageJson } from "../utils/config";
+import {  http, } from "../utils/config";
 import { setUserLogin, setUserLoginError } from "../redux/reducers/UserLoginReducer";
 import { useDispatch } from "react-redux";
 import { history } from "..";
@@ -9,6 +9,8 @@ const LoginWithFacebook = () => {
     const dispatch = useDispatch();
     const responseFacebook = async(response)=>{
         let res = await http.post("/api/Users/facebooklogin",{facebookToken:response?.accessToken});
+        console.log('facebookToken',res);
+        
         if(res?.status===200){
           const actionLogin = setUserLogin({accessToken:res.data?.content.accessToken,name:response?.name});
         dispatch(actionLogin);

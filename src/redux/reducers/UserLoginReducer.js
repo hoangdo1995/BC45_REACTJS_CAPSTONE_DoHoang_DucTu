@@ -55,7 +55,10 @@ export const loginAction = (userLogin)=>{
 export const profileAction = ()=>{
   return  async(dispatch)=>{
     const res =  await http.post('https://shop.cyberlearn.vn/api/Users/getProfile');
-        if(res?.status === 200){
+    if(res?.status === 401){
+      history.push('/login');
+    }
+      else  if(res?.status === 200){
           const profile = setUserLogin({...getStorageJson(USER_LOGIN),...res?.data.content});
           dispatch(profile);
           history.push('/profile/history');
