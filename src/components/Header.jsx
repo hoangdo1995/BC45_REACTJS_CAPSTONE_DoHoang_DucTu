@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { useSelector} from "react-redux";
 const Header = () => {
+  const { cart } = useSelector((state) => state.cartReducer);
+  let tongSoLuong = cart.reduce((tsl, spGH, index) => {
+    return (tsl += spGH.quantity);
+  }, 0);
   return (
     <div>
       <div
@@ -28,9 +32,9 @@ const Header = () => {
             className={({ isActive }) =>
               isActive ? "text-warning ms-3" : "text-white ms-3"
             }
-            style={{ textDecoration: "none" }}
+            style={{ }}
           >
-            <i className="fa fa-shopping-cart"></i>
+            <i className="fa fa-shopping-cart"><span style={{fontWeight:"300"}}></span>({tongSoLuong})</i>
           </NavLink>
           <NavLink
             to={"login"}

@@ -30,21 +30,21 @@ const Detail = () => {
     <div className="container">
       <div className="row">
         <div className="col-4 mt-2">
-          <img src={productShoes.image} className="w-75" alt="..." />
+          <img src={productShoes.image} className="w-400" alt="..." />
         </div>
-        <div className="col-8 mt-2">
+        <div className="col-7 mt-2" style={{marginLeft:"100px"}}>
           <h3>{productShoes.name}</h3>
-          <p>{productShoes.price}</p>
-          <p>{productShoes.description}</p>
+          <p style={{fontSize:"23px"}}>{productShoes.price} $</p>
+          <p className="text-secondary fs-5">{productShoes.description}</p>
           <button
-            className="btn btn-dark"
+            className="btn btn-danger fs-4"
             onClick={() => {
               const prodCart={...productShoes,quantity:1}
               const action = addToCartAction(prodCart);
               dispatch(action);
             }}
           >
-            ADD TO CART
+            ADD TO CART !
           </button>
         </div>
       </div>
@@ -56,7 +56,7 @@ const Detail = () => {
                 <img src={item.image} alt="..." />
                 <div className="card-body">
                   <h3>{item.name}</h3>
-                  <p>{item.price}</p>
+                  <p>{item.price} $</p>
                   <NavLink className="btn btn-dark" to={`/detail/${item.id}`}>
                     View detail
                   </NavLink>
