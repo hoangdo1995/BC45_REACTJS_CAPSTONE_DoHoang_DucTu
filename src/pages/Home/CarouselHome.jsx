@@ -28,7 +28,7 @@ const CarouselHome = () => {
             </div>
             <div>
                 <h3 style={contentStyle}>
-                    <img className='w-100 ' height={700} src="./image/adidas.jpeg" alt="..." />
+                    <img className='w-100 ' height={700} src="./image/nikeadidas.jpeg" alt="..." />
                 </h3>
             </div>
         </Carousel>
