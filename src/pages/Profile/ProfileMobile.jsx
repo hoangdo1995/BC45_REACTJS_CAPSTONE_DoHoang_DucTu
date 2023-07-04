@@ -86,7 +86,7 @@ const ProfileMobile = () => {
   }
   },[user_login]);
   return (
-    <div className="container">
+    <div className="container" style={{background:'#FFFCFC'}}>
       <div className="title bg-linear px-4 py-1 w-50">
         <h3 className="text-light">Profile</h3>
       </div>

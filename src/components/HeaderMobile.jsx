@@ -31,7 +31,7 @@ const HeaderMobile = () => {
         <NavLink to={'/product/kid'} className={({isActive})=>(isActive?'text-dark ms-3':'text-secondary ms-3')} style={{textDecoration:'none'}}>Kid</NavLink>
         <NavLink to={'/product/sport'} className={({isActive})=>(isActive?'text-dark ms-3':'text-secondary ms-3')} style={{textDecoration:'none'}}>Sport</NavLink>
       </div>
-      <div className='popup_menu d-flex flex-column align-items-start border px-3 py-3 hidden' style={{position:'absolute',top:60,right:30,background:'#fff',boxShadow:'0px 5px 5px 0px rgba(7,6,6,0.5)',transition:'all .5s'}} id='menu_popup'>
+      <div className='popup_menu d-flex flex-column align-items-start border px-3 py-3 hidden' style={{position:'absolute',top:60,right:30,background:'#fff',boxShadow:'0px 5px 5px 0px rgba(7,6,6,0.5)',transition:'all .5s',zIndex:99}} id='menu_popup'>
           <NavLink to={'search'} className={({isActive})=>(isActive?'text-warning my-2':'text-dark my-2')} style={{textDecoration:'none'}}>Search <i className='fa fa-search'></i></NavLink>
           <NavLink to={'carts'} className={({isActive})=>(isActive?'text-warning my-2':'text-dark my-2')} style={{textDecoration:'none'}}>Cart <i className="fa fa-shopping-cart"></i>({carts?.cart.length})</NavLink>
           

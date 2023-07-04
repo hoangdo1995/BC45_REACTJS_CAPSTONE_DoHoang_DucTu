@@ -19,12 +19,12 @@ import ProfileMobile from './pages/Profile/ProfileMobile';
 import Register from './pages/Register/Register';
 import RegisterMobile from './pages/Register/RegisterMobile';
 import Search from './pages/Search/Search';
-import SearchMobile from './pages/Search/SearchMobile';
 import Carts from './pages/Carts/Carts';
 import CartsMobile from './pages/Carts/CartsMobile';
 import HomeMobile from './pages/Home/HomeMobile';
 import HistoryOrderPage from './pages/HistoryPage/HistoryOrderPage';
 import FavouritePage from './pages/FavouritePage/FavouritePage';
+import HistoryOrderPageMobile from './pages/HistoryPage/HistoryOrderPageMobile';
 
 export const history = createBrowserHistory();
 
@@ -42,10 +42,10 @@ root.render(
             <Route path='register' element={<ResponsiveItem component={Register} mobileComponent={RegisterMobile} />} />
             <Route path='detail/:productId' element={<ResponsiveItem component={Detail} mobileComponent={DetailMobile} />} />
             <Route path='profile' element={<ResponsiveItem component={Profile} mobileComponent={ProfileMobile}/>}>
-              <Route path='history' exact element={<HistoryOrderPage/>}/>
+              <Route path='history' element={<ResponsiveItem component={HistoryOrderPage} mobileComponent={HistoryOrderPageMobile}/>}/>
               <Route path='favourite' element={<ResponsiveItem component={FavouritePage}/>}/>
             </Route>
-            <Route path='search' element={<ResponsiveItem component={Search} mobileComponent={SearchMobile} />} />
+            <Route path='search' element={<ResponsiveItem component={Search}/>} />
             <Route path='carts' element={<ResponsiveItem component={Carts} mobileComponent={CartsMobile} />} />
           </Route>
         </Routes>
