@@ -69,7 +69,7 @@ export default function DanhSachGioHang(props) {
                 <i className="fa fa-trash"></i>
               </button>
               <br />
-              <p className="mt-5">Giá: <span style={{fontWeight:'700'}}>{item.quantity * item.price}</span></p>
+              <p className="mt-5">Giá: <span style={{fontWeight:'700',color:"red"}}>{item.quantity * item.price} $</span></p>
             </div>
           </div>
         );
