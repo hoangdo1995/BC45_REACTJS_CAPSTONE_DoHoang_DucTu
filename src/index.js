@@ -37,6 +37,7 @@ root.render(
         <Routes>
           <Route path='' element={<MainTemplate />}>
             <Route index element={<ResponsiveItem component={Home} mobileComponent={HomeMobile} />} />
+            <Route path='*' element={<ResponsiveItem component={Home} mobileComponent={HomeMobile} />} />
             <Route path='login' element={<ResponsiveItem component={Login} mobileComponent={LoginMobile} />} />
             <Route path='register' element={<ResponsiveItem component={Register} mobileComponent={RegisterMobile} />} />
             <Route path='detail/:productId' element={<ResponsiveItem component={Detail} mobileComponent={DetailMobile} />} />

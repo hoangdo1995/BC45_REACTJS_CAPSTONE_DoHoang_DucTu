@@ -145,8 +145,8 @@ const ProfileMobile = () => {
       </div>
       <div className="border-top">
         <div className="nav">
-          <NavLink to='history' className={({isActive})=>(isActive?'nav-active':'nav-unactive')} style={{textDecoration:'none',padding:'10px 20px',fontWeight:500,borderCollapse:Collapse,fontSize:25}}>Order history</NavLink>
-          <NavLink to='favourite' className={({isActive})=>(isActive?'nav-active':'nav-unactive')} style={{textDecoration:'none',padding:'10px 20px',fontWeight:500,borderCollapse:Collapse,fontSize:25}}>Favourite</NavLink>
+          <NavLink to='history' className={({isActive})=>(isActive?'nav-active':'nav-unactive')} style={{textDecoration:'none',padding:'10px 20px',fontWeight:500,borderCollapse:Collapse,fontSize:20}}>Order history</NavLink>
+          <NavLink to='favourite' className={({isActive})=>(isActive?'nav-active':'nav-unactive')} style={{textDecoration:'none',padding:'10px 20px',fontWeight:500,borderCollapse:Collapse,fontSize:20}}>Favourite</NavLink>
         </div>
         <div className="p-4">
           <Outlet/>
