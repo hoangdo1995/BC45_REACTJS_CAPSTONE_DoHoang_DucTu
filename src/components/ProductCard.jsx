@@ -33,7 +33,6 @@ const ProductCard = (props) => {
                         <img src={(like)?'../image/heart.png':'../image/heart_outline.png'} alt="..." style={{width:30,cursor:'pointer'}} onClick={()=>{
                             setLike(!like?true:false);
                             const unLikeApi = http.get(`/api/Users/unlike?productId=${product.id}`);
-                            console.log(unLikeApi);
                             const getProductLikeAction = getLikeProduct();
                              dispatch(getProductLikeAction);
                             }}/>

@@ -17,6 +17,7 @@ export default function DanhSachGioHang(props) {
           <div
             className="info_product d-flex mt-3"
             style={{ marginLeft: "58px" }}
+            key={index}
           >
             <img src={item.image} alt="..." width={150} height={150} />
             <div

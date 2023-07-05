@@ -16,7 +16,6 @@ const Detail = () => {
       method: 'GET',
     });
     setProductSheos(res.data.content);
-    console.log(params.productId);
   }
   useEffect(() => {
     getShoesApiDetail()

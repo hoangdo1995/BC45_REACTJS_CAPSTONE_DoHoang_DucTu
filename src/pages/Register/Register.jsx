@@ -35,7 +35,6 @@ const Register = () => {
         phone: values.phone,
         gender: values.gender,
       };
-      console.log(user_register);
       const res = await http.post("/api/Users/signup", user_register);
       if (res?.status === 200) {
         const action = setUserLogin({email:res.data?.content.email});

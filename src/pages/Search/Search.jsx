@@ -65,7 +65,7 @@ export default function Search(props) {
         <div className="row">
           {arrProduct.map((item, index) => {
             return (
-              <div className="col-4">
+              <div className="col-4" key={index}>
                 <div className="card">
                   <img src={item.image} alt="" />
                   <div className="card-body">

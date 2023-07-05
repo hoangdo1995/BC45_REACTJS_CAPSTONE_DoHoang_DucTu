@@ -26,7 +26,6 @@ const Home = () => {
   }
   useEffect(() => {
     getProductApi();
-    console.log("arrShoes", arrShoes);
   }, []);
 
   return (
