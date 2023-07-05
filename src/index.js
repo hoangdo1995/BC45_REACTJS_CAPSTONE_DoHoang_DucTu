@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './redux/ConfigStore';
 import { unstable_HistoryRouter as HistoryRouter, Route, Router, Routes } from 'react-router-dom'
@@ -13,15 +12,14 @@ import ResponsiveItem from './utils/Responsive';
 import Login from './pages/Login/Login';
 import LoginMobile from './pages/Login/LoginMobile';
 import Detail from './pages/Detail/Detail';
-import DetailMobile from './pages/Detail/DetailMobile';
 import Profile from './pages/Profile/Profile';
 import ProfileMobile from './pages/Profile/ProfileMobile';
 import Register from './pages/Register/Register';
-import RegisterMobile from './pages/Register/RegisterMobile';
 import Search from './pages/Search/Search';
-import SearchMobile from './pages/Search/SearchMobile';
 import Carts from './pages/Carts/Carts';
-import CartsMobile from './pages/Carts/CartsMobile';
+import HistoryOrderPage from './pages/HistoryPage/HistoryOrderPage';
+import FavouritePage from './pages/FavouritePage/FavouritePage';
+import HistoryOrderPageMobile from './pages/HistoryPage/HistoryOrderPageMobile';
 
 export const history = createBrowserHistory();
 
@@ -33,13 +31,17 @@ root.render(
       <HistoryRouter history={history}>
         <Routes>
           <Route path='' element={<MainTemplate />}>
-            <Route index element={<Home />} />
+            <Route index element={<ResponsiveItem component={Home}/>} />
+            <Route path='*' element={<ResponsiveItem component={Home}/>} />
             <Route path='login' element={<ResponsiveItem component={Login} mobileComponent={LoginMobile} />} />
-            <Route path='register' element={<ResponsiveItem component={Register} mobileComponent={RegisterMobile} />} />
-            <Route path='detail/:productId' element={<ResponsiveItem component={Detail} mobileComponent={DetailMobile} />} />
-            <Route path='profile' element={<ResponsiveItem component={Profile} mobileComponent={ProfileMobile} />} />
-            <Route path='search' element={<ResponsiveItem component={Search} mobileComponent={SearchMobile} />} />
-            <Route path='carts' element={<ResponsiveItem component={Carts} mobileComponent={CartsMobile} />} />
+            <Route path='register' element={<ResponsiveItem component={Register}/>} />
+            <Route path='detail/:productId' element={<ResponsiveItem component={Detail}/>} />
+            <Route path='profile' element={<ResponsiveItem component={Profile} mobileComponent={ProfileMobile}/>}>
+              <Route path='history' element={<ResponsiveItem component={HistoryOrderPage} mobileComponent={HistoryOrderPageMobile}/>}/>
+              <Route path='favourite' element={<ResponsiveItem component={FavouritePage}/>}/>
+            </Route>
+            <Route path='search' element={<ResponsiveItem component={Search}/>} />
+            <Route path='carts' element={<ResponsiveItem component={Carts}/>} />
           </Route>
         </Routes>
       </HistoryRouter>

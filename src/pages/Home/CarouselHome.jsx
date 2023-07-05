@@ -18,17 +18,17 @@ const CarouselHome = () => {
         <Carousel afterChange={onChange}>
             <div>
                 <h3 style={contentStyle}>
+                    <img className='w-100' src="./image/nike.jpeg" alt="..." />
+                </h3>
+            </div>  
+            <div>
+                <h3 style={contentStyle}>
                     <img className='w-100' src="./image/nike11.jpg" alt="..." />
                 </h3>
             </div>
             <div>
                 <h3 style={contentStyle}>
-                    <img className='w-100' src="./image/nike.jpeg" alt="..." />
-                </h3>
-            </div>
-            <div>
-                <h3 style={contentStyle}>
-                    <img className='w-100 ' height={700} src="./image/adidas.jpeg" alt="..." />
+                    <img className='w-100 ' height={700} src="./image/nikeadidas.jpeg" alt="..." />
                 </h3>
             </div>
         </Carousel>
